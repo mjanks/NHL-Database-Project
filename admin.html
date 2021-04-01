@@ -1,0 +1,44 @@
+<!-- 
+Created by: Group Project
+COSC 471
+Winter 2021 -->
+
+<?php 
+    // Test the conncetion to the remote database
+    mysqli_connect("michaeljanks.com", "chaeljb3_michael", "password", "chaeljb3_471db");
+    if (mysqli_connect_errno())
+        print "not connected";
+    else
+        print "connected";
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title> NHL Database Site Admin </title>
+		<meta name="keywords" content="hockey nhl">
+		<meta name="author" content="Group Project">
+		<meta charset="UTF-8">
+		<!-- <link rel="stylesheet" href="stylesheet.css"> -->
+	</head>
+	<body> 
+		<header>
+			<h1> Admin Home </h1>
+		</header>
+		<main>
+			<p>These tables DO NOT have foreign key constraints!</p>
+			<a href="/adminConference.php">View/Edit Conference Table Data</a><br>
+			<a href="/adminArena.php">View/Edit Arena Table Data</a><br>
+			<a href="/adminCoach.php">View/Edit Coach Table Data</a><br>
+			<p>These tables DO have foreign key constraints!</p>
+			<a href="/adminDivision.php">View/Edit Division Table Data</a><br>
+			<a href="/adminTeam.php">View/Edit Team Table Data</a><br>
+		</main>
+	</body>
+</html>
+
+<!-- divId
+1 Atlantic
+2 Metro
+3 Central
+4 Pacific -->
