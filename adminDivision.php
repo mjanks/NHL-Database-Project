@@ -4,13 +4,17 @@ COSC 471
 Winter 2021 -->
 
 <?php 
+    include 'dbconfig.php';
+?>
+
+<!-- <?php 
     // Test the conncetion to the remote database
-    mysqli_connect("michaeljanks.com", "chaeljb3_michael", "password", "chaeljb3_471db");
+    mysqli_connect($hostname, $username, $password, $database);
     if (mysqli_connect_errno())
         print "not connected";
     else
         print "connected";
-?>
+?> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +32,7 @@ Winter 2021 -->
 		<main>
             <?php
                 // display Division table data
-                $db = mysqli_connect("michaeljanks.com", "chaeljb3_michael", "password", "chaeljb3_471db");
+                $db = mysqli_connect($hostname, $username, $password, $database);
                 $query = "SELECT * FROM Division";
                 $result = mysqli_query($db, $query);
                 $num_rows = mysqli_num_rows($result);

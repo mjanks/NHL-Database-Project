@@ -3,9 +3,13 @@ Created by: Group Project
 COSC 471
 Winter 2021 -->
 
+<?php 
+    include 'dbconfig.php';
+?>
+
 <!-- <?php 
     // Test the conncetion to the remote database
-    mysqli_connect("michaeljanks.com", "chaeljb3_michael", "password", "chaeljb3_471db");
+    mysqli_connect($hostname, $username, $password, $database);
     if (mysqli_connect_errno())
         print "not connected";
     else
@@ -28,7 +32,7 @@ Winter 2021 -->
 		</header>
 		<main>
             <?php
-                $db = mysqli_connect("michaeljanks.com", "chaeljb3_michael", "password", "chaeljb3_471db");
+                $db = mysqli_connect($hostname, $username, $password, $database);
 
                 // set all the variables from the POST array after checking that they are set and not null
                 if(isset($_POST["Name"]) && isset($_POST["Capacity"]) && isset($_POST["City"]) &&

@@ -3,7 +3,18 @@ Created by: Group Project
 COSC 471
 Winter 2021 -->
 
+<?php 
+    include 'dbconfig.php';
+?>
 
+<!-- <?php 
+    // Test the conncetion to the remote database
+    mysqli_connect($hostname, $username, $password, $database);
+    if (mysqli_connect_errno())
+        print "not connected";
+    else
+        print "connected";
+?> -->
 
 
 <!DOCTYPE html>
@@ -15,18 +26,6 @@ Winter 2021 -->
 		<meta charset="UTF-8">
 		<!-- <link rel="stylesheet" href="stylesheet.css"> -->
 	</head>
-
-    
-
-
-    <?php 
-        
-        mysqli_connect("michaeljanks.com", "chaeljb3_michael", "password", "chaeljb3_471db");
-        if (mysqli_connect_errno())
-            print "not connected";
-        else
-            print "connected";
-    ?>
 
 	<body> 
 		<header>

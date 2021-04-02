@@ -4,13 +4,17 @@ COSC 471
 Winter 2021 -->
 
 <?php 
+    include 'dbconfig.php';
+?>
+
+<!-- <?php 
     // Test the conncetion to the remote database
-    mysqli_connect("michaeljanks.com", "chaeljb3_michael", "password", "chaeljb3_471db");
+    mysqli_connect($hostname, $username, $password, $database);
     if (mysqli_connect_errno())
         print "not connected";
     else
         print "connected";
-?>
+?> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,8 +31,106 @@ Winter 2021 -->
 		</header>
 		<main>
             <?php
+                $db =mysqli_connect($hostname, $username, $password, $database);
+
+                echo "$$$$$$$$$$$$$$$$$$$$$ Division Info $$$$$$$$$$$$$$$$$$$$$$$$$$$$";
+                ?><br><?php
+                $query = "SELECT DivisionId, Name FROM Division";
+                $result = mysqli_query($db, $query);
+                $num_rows = mysqli_num_rows($result);
+                for ($i = 0; $i < $num_rows; $i++) {
+                    $row = mysqli_fetch_assoc($result);
+                    $name = $row["Name"];
+                    $divisionId = $row["DivisionId"];
+                    ?>
+
+                    <div>
+                    <table>
+                    <tr><td>
+                        <?php echo "Division Name: " . $name; ?>
+                    </td>
+                    <td>
+                        <?php echo "###" ?>
+                    </td>
+                    <td>
+                        <?php echo "Division Id: " . $divisionId; ?>
+                    </td></tr>
+                    </table>
+                    </div>
+                    <div>
+                    <tr><td>
+                        <?php echo "---------------------------------------------------" ?>
+                    </td></tr>
+                    </div>
+                    
+                    <?php
+                }
+                ?><br><?php
+                echo "$$$$$$$$$$$$$$$$$$$$$ Arena Info $$$$$$$$$$$$$$$$$$$$$$$$$$$$";
+                ?><br><?php
+                $query = "SELECT ArenaId, Name FROM Arena";
+                $result = mysqli_query($db, $query);
+                $num_rows = mysqli_num_rows($result);
+                for ($i = 0; $i < $num_rows; $i++) {
+                    $row = mysqli_fetch_assoc($result);
+                    $name = $row["Name"];
+                    $arenaId = $row["ArenaId"];
+                    ?>
+
+                    <div>
+                    <table>
+                    <tr><td>
+                        <?php echo "Arena Name: " . $name; ?>
+                    </td>
+                    <td>
+                        <?php echo "###" ?>
+                    </td>
+                    <td>
+                        <?php echo "Arena Id: " . $arenaId; ?>
+                    </td></tr>
+                    </table>
+                    </div>
+                    <div>
+                        <?php echo "---------------------------------------------------" ?>
+                    </div>
+                    <?php
+                }
+                ?><br><?php
+                echo "$$$$$$$$$$$$$$$$$$$$$ Coach Info $$$$$$$$$$$$$$$$$$$$$$$$$$$$";
+                ?><br><?php
+                $query = "SELECT CoachId, Name FROM Coach";
+                $result = mysqli_query($db, $query);
+                $num_rows = mysqli_num_rows($result);
+                for ($i = 0; $i < $num_rows; $i++) {
+                    $row = mysqli_fetch_assoc($result);
+                    $name = $row["Name"];
+                    $coachId = $row["CoachId"];
+                    ?>
+
+                    <div>
+                    <table>
+                    <tr><td>
+                        <?php echo "Coach Name: " . $name; ?>
+                    </td>
+                    <td>
+                    <?php echo "###" ?>
+                    </td>
+                    <td>
+                        <?php echo "Coach Id: " . $coachId; ?>
+                    </td>
+                    <tr><td>
+                    </table>
+                    </div>
+                    <div>
+                        <?php echo "---------------------------------------------------" ?>
+                    </div>
+                    <?php
+                }
+
+
+
+
                 // display Team table data
-                $db = mysqli_connect("michaeljanks.com", "chaeljb3_michael", "password", "chaeljb3_471db");
                 $query = "SELECT * FROM Team";
                 $result = mysqli_query($db, $query);
                 $num_rows = mysqli_num_rows($result);
